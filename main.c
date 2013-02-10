@@ -44,8 +44,9 @@ int main(int argc, unsigned char** argv) {
 
     memset(mem, MEM_SIZE, 0);
 
-    for(int i=0;i<256;++i)
+    for(int i=0;i<256;++i) {
         instr[i] = nop;
+    }
 
     instr['+'] = inc;
     instr['-'] = dec;
