@@ -64,6 +64,13 @@ int main(int argc, unsigned char** argv) {
 
     for(ins = src; ins < src+src_len; ++ins) {
         (instr[*ins]) ();
+
+        /* ensure ptr is within bounds after each instuction */
+        if(ptr < mem) {
+            ptr = mem;
+        } else if(ptr >= mem + MEM_SIZE) {
+            ptr = mem + MEM_SIZE - 1;
+        }
     }
 
     free(src);
